@@ -10,7 +10,18 @@ class InputPage extends StatefulWidget {
   State<InputPage> createState() => _InputPageState();
 }
 
+enum Gender {
+  male,
+  female
+}
+
+Gender? selectedGender;
+
 class _InputPageState extends State<InputPage> {
+
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,15 +40,31 @@ class _InputPageState extends State<InputPage> {
         children: [
           Row(
             children:  [
-              Expanded(child: ReUsableCard(
-                  colour: activeCardColor,
-                  carChild: IconContent(genderText: maleText, genderIcon: maleIcon,),
-                )
+              Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    child: ReUsableCard(
+                    colour: selectedGender == Gender.male ? activeCardColor: inactiveCardColor,
+                    carChild: IconContent(genderText: maleText, genderIcon: maleIcon,),
+                  ),
+              )
               ),
-              Expanded(child: ReUsableCard(
-                colour: activeCardColor,
-                carChild: IconContent(genderText: femaleText, genderIcon: femaleIcon,),
-                ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedGender = Gender.female;
+                    });
+                  },
+                  child: ReUsableCard(
+                      colour: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
+                      carChild: IconContent(genderText: femaleText, genderIcon: femaleIcon,),
+                    ),
+              ),
               )
             ],
           ),
