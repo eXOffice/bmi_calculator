@@ -41,17 +41,15 @@ class _InputPageState extends State<InputPage> {
           Row(
             children:  [
               Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReUsableCard(
+                    onPress: (){ // use Function datatype and call it from a function;
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReUsableCard(
-                    colour: selectedGender == Gender.male ? activeCardColor: inactiveCardColor,
-                    carChild: IconContent(genderText: maleText, genderIcon: maleIcon,),
-                  ),
-              )
+                  colour: selectedGender == Gender.male ? activeCardColor: inactiveCardColor,
+                  carChild: IconContent(genderText: maleText, genderIcon: maleIcon,),
+                  )
               ),
               Expanded(
                 child: GestureDetector(
@@ -61,6 +59,11 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   child: ReUsableCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                       colour: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
                       carChild: IconContent(genderText: femaleText, genderIcon: femaleIcon,),
                     ),
