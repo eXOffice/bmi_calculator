@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ReUsableCard extends StatelessWidget {
 
-  const ReUsableCard({super.key,  required this.colour, required this.carChild, required this.onPress});
+  const ReUsableCard({super.key,  required this.colour, required this.cardChild,  this.onPress});
   final Color colour;
-  final Widget carChild;
-  final Function() onPress;
+  final Widget cardChild;
+  final Function() ? onPress;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +19,7 @@ class ReUsableCard extends StatelessWidget {
             //borderRadius: BorderRadius.all(Radius.circular(15.0)), //same
             color: colour//Color(0xFF1D1E33),
         ),
-        child: carChild,
+        child: cardChild,
       ),
     );
   }

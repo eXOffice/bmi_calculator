@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const bottomContainerHeight = 40.0;
-const bottomContainerColor = Color(0xFFEB1555);
+const kBottomContainerHeight = 40.0;
+const kBottomContainerColor = Color(0xFFEB1555);
 
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
+const kActiveCardColor = Color(0xFF1D1E33);
+const kInactiveCardColor = Color(0xFF111328);
 
-const maleIcon = FontAwesomeIcons.mars;
-const femaleIcon = FontAwesomeIcons.venus;
-const maleText = 'MALE';
-const femaleText = 'FEMALE';
+const kMaleIcon = FontAwesomeIcons.mars;
+const kFemaleIcon = FontAwesomeIcons.venus;
+const kMaleText = 'MALE';
+const kFemaleText = 'FEMALE';
 
-const labelTextStyle = TextStyle(
+const kLabelTextStyle = TextStyle(
     fontSize: 18.0,
     color: Color(0xFF8D8E98) )
 ;
+
+const kNumberTerxtStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w700,
+);
+
 
