@@ -1,9 +1,12 @@
-import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/reusable_card.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'icon_content.dart';
+import '../components/bottom_button.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../components/round_icon_button.dart';
+import '../constants.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -15,6 +18,8 @@ class InputPage extends StatefulWidget {
 enum Gender { male, female }
 
 Gender? selectedGender;
+
+CalculatorBrain calc = CalculatorBrain(height: null, weight: null);
 
 class _InputPageState extends State<InputPage> {
   Color maleCardColor = kInactiveCardColor;
@@ -245,42 +250,15 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           ),
-          Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('CALCULATE'),
-                ],
-              ),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              color: kBottomContainerColor),
+          BottomButton(
+            onTap: () {
+              calc = CalculatorBrain(height: height, weight: wt);
+              Navigator.pushNamed(context, '/first');
+            },
+            buttonTitle: 'CALCULATE',
+          ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  //const RoundIconButton({Key? key}) : super(key: key);
-  final IconData? icon;
-
-  final Function()? onPressed;
-
-  const RoundIconButton(
-      {super.key, required this.icon, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      onPressed: onPressed,
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      child: Icon(icon),
     );
   }
 }

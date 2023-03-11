@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+
+import '../constants.dart';
 
 class IconContent extends StatelessWidget {
   const IconContent({
@@ -13,7 +14,7 @@ class IconContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column (
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
